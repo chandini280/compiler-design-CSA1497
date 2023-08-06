@@ -1,0 +1,13 @@
+%{
+int line_number = 1;
+%}
+
+%%
+\n  { line_number++; putchar('\n'); }
+.   { printf("%d: %s", line_number, yytext); }
+%%
+
+int main() {
+ yylex();
+    return 0;
+}
